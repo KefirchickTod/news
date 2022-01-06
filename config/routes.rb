@@ -1,8 +1,17 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  scope shallow_prefix: "sekret" do
-    resources :item
+  # Admin routes
+  namespace :admin do
+    resources :article_categories
+    resources :articles
+    resources :users
   end
+
+  # App routes
+
+
+  resources :article_categories, shallow: true, only: %i[ show index ] do
+    resources :articles, only: %i[ show index ]
+  end
+
 end

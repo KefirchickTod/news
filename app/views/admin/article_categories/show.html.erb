@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @admin_article_category %>
+
+<div>
+  <%= link_to "Edit this article category", edit_admin_article_category_path(@admin_article_category) %> |
+  <%= link_to "Back to article categories", admin_article_categories_path %>
+
+  <%= button_to "Destroy this article category", @admin_article_category, method: :delete %>
+</div>
