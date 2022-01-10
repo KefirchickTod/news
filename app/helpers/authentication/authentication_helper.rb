@@ -1,0 +1,2 @@
+module Authentication::AuthenticationHelper
+end
