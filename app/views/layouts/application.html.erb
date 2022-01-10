@@ -42,30 +42,38 @@
             <div class="text-end">
 
 
-                <%= link_to 'Login', new_user_path, :class => 'btn btn-outline-light me-2' %>
-                <%= link_to 'Sign Up', new_user_path, :class => 'btn btn-warning' %>
+                <% if logged_in? -%> Welcome, <%= current_user.email %>
+                    <%= link_to 'Log out', new_authentication_session_path, :class => 'btn btn-outline-light me-2' %>
+                <% else %>
+                    <%= link_to 'Login', new_authentication_session_path, :class => 'btn btn-outline-light me-2' %>
+                    <%= link_to 'Sign Up', new_user_path, :class => 'btn btn-warning' %>
+                <% end -%>
+
             </div>
         </div>
     </div>
 </header>
 
 
-<section class="section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6"></div>
-            <div class="col-md-6"></div>
-        </div>
-
-    </div>
-</section>
 
 <div class="container">
     <%= yield %>
 
 
-    <%= debug(params) if Rails.env.development? %>
+    <% if Rails.env.development? %>
+        <div class="debug">
+            <samp>
+                <pre>
+                    <code>
+                        <%= debug(params) %>
+                    </code>
+                </pre>
+                <%= debug(session) %>
+            </samp>
 
+
+        </div>
+    <% end -%>
 </div>
 
 </body>

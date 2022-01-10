@@ -16,8 +16,27 @@
 
 @import 'bootstrap';
 
+body {
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: #3d455c;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: #fff;
+}
 
-.signup-form {
+img {
+  vertical-align: middle;
+  border: 0;
+}
+
+section {
+  padding-top: 40px;
+}
+
+.signup-form, .login-form {
 
   width: 390px;
   margin: 0 auto;
@@ -110,5 +129,88 @@
     top: 18px;
     font-size: 7px;
     position: absolute;
+  }
+}
+
+
+.post {
+  margin-bottom: 40px;
+
+  .post-img {
+    display: block;
+    -webkit-transition: .2s opacity;
+    transition: .2s opacity;
+
+    > img {
+      width: 100%;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      background: -webkit-gradient(linear, left bottom, left top, from(rgba(33, 38, 49, .3)), to(transparent));
+      background: linear-gradient(to top, rgba(33, 38, 49, .3) 0%, transparent 100%);
+    }
+  }
+
+
+  .post-meta {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  .post-category.cat-2 {
+    background-color: #ff8700;
+  }
+
+  .post-category {
+    font-size: 13px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    font-weight: 600;
+    border-radius: 2px;
+    margin-right: 15px;
+    color: #fff;
+    background-color: #212631;
+    -webkit-transition: .2s opacity;
+    transition: .2s opacity;
+  }
+
+  .post-date {
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .post-title {
+    font-size: 18px;
+    margin-bottom: 0;
+  }
+}
+
+.post-thumb {
+  position: relative;
+
+  .post-meta {
+    .post-date {
+      color: #eceef2;
+    }
+  }
+
+  .post-body {
+    position: absolute;
+    bottom: 0;
+    padding: 20px 15px;
+  }
+
+  .post-title {
+    font-size: 22px;
+
+    > a {
+      color: #fff;
+    }
   }
 }

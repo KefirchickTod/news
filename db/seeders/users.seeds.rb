@@ -2,9 +2,9 @@ require 'bcrypt'
 
 User.delete_all
 
-[1..5].each do |i|
+5.times do |i|
 
-  password = BCrypt::Password.create(i == 1 ? "soft_admin" : Faker::Internet.password)
+  password = i == 0 ? "soft_admin" : Faker::Internet.password
 
   User.create email:       Faker::Internet.unique.email,
               password:    password,

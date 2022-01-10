@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 2022_01_05_231513) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
-    t.integer "category_id"
     t.text "short_text"
     t.text "slug"
     t.text "full_text", default: "Full content of article"
@@ -30,22 +29,7 @@ ActiveRecord::Schema.define(version: 2022_01_05_231513) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "article_categories_id"
-    t.integer "users_id"
     t.index ["article_categories_id"], name: "index_articles_on_article_categories_id"
-    t.index ["category_id"], name: "index_articles_on_category_id"
-    t.index ["users_id"], name: "index_articles_on_users_id"
-  end
-
-  create_table "items", force: :cascade do |t|
-    t.float "price"
-    t.string "name"
-    t.boolean "real"
-    t.float "weight"
-    t.string "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["name"], name: "index_items_on_name"
-    t.index ["price"], name: "index_items_on_price"
   end
 
   create_table "permissions", force: :cascade do |t|
@@ -74,6 +58,5 @@ ActiveRecord::Schema.define(version: 2022_01_05_231513) do
   end
 
   add_foreign_key "articles", "article_categories", column: "article_categories_id"
-  add_foreign_key "articles", "users", column: "users_id"
   add_foreign_key "roles", "users", column: "users_id"
 end

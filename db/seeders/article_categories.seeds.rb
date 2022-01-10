@@ -1,6 +1,6 @@
 ArticleCategory.delete_all
 
-[1..5].each do |i|
+5.times do |i|
 
   title = Faker::Hipster.sentence(word_count: 1)
 

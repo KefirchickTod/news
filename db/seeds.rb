@@ -8,5 +8,16 @@ require 'faker'
 #   Character.create(name: "Luke", movie: movies.first)
 
 Dir[File.join(Rails.root, 'db', 'seeders', '*.rb')].sort.each { |seed|
-  load seed
+  puts "Start seeders #{seed}"
+
+  begin
+    load seed
+    sleep 0.2
+  rescue
+    puts "Some errors with seeding #{seed}"
+  end
+
 }
+
+
+

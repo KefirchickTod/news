@@ -3,7 +3,6 @@ class CreateArticles < ActiveRecord::Migration[7.0]
     create_table :articles do |t|
 
       t.string :title, comment: "Article name"
-      t.integer :category_id, index: true, comment: "Link to article article category"
       t.text :short_text, :slug
       t.text :full_text, default: "Full content of article"
       t.integer :public, :limit => 2, default: 1, comment: "Published article?"
@@ -14,7 +13,7 @@ class CreateArticles < ActiveRecord::Migration[7.0]
 
 
       t.belongs_to :article_categories, foreign_key: true
-      t.belongs_to :users, foreign_key: true
+
 
     end
   end
