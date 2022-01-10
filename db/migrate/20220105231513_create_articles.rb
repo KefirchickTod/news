@@ -7,6 +7,8 @@ class CreateArticles < ActiveRecord::Migration[7.0]
       t.text :full_text, default: "Full content of article"
       t.integer :public, :limit => 2, default: 1, comment: "Published article?"
 
+      t.text :default_photo, null: false, comment: "Default photo"
+
       t.integer :author_id, comment: "Author current article"
 
       t.timestamps

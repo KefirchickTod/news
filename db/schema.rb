@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2022_01_05_231513) do
     t.text "slug"
     t.text "full_text", default: "Full content of article"
     t.integer "public", limit: 2, default: 1
+    t.text "default_photo", null: false
     t.integer "author_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

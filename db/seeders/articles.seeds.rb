@@ -11,6 +11,7 @@ Article.delete_all
                         article_categories_id: rand(1..4),
                         slug:                  slug,
                         author_id:             1, #admin
+                        default_photo: 'https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-1-scaled.png',
                         public: rand(0..1)
   )
 

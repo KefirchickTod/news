@@ -2,16 +2,16 @@
     <%= @hot.each do |article| %>
         <div class="col-md-6">
             <div class="post post-thumb">
-                <a class="post-img" href="#">
-                    <img src="https://www.researchgate.net/profile/Lester-Loschky/publication/245620096/figure/fig4/AS:286488236445699@1445315526246/Relationship-between-target-and-mask-images-in-Experiment-3-Examples-of-the-four-types_Q320.jpg" decoding="async" loading="lazy" alt>
+                <a class="post-img" href="<%= article_path(article) %>">
+                    <img src="<%= article.default_photo %>" decoding="async" loading="lazy" alt>
                 </a>
                 <div class="post-body">
                     <div class="post-meta">
-                        <a class="post-category cat-2" href="#category">test</a>
+                        <a class="post-category cat-2" href="<%= article_category_path(article.article_category) %>"><%= article.article_category.title %></a>
                         <span class="post-date"><%= article.created_at.strftime("%B %d, %Y") %></span>
                     </div>
                     <h3 class="post-title">
-                        <a href="#"><%= article.title %></a>
+                        <a href="<%= article_path(article) %>"><%= article.title %></a>
                     </h3>
                 </div>
             </div>
