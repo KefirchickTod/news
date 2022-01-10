@@ -64,13 +64,13 @@ ActiveRecord::Schema.define(version: 2022_01_05_231513) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.text "email"
-    t.text "password"
-    t.text "first_name"
+    t.text "email", null: false
+    t.text "password_digest", null: false
+    t.text "first_name", null: false
     t.text "second_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_users_on_email"
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   add_foreign_key "articles", "article_categories", column: "article_categories_id"

@@ -14,4 +14,11 @@ Rails.application.routes.draw do
     resources :articles, only: %i[ show index ]
   end
 
+  get '/', to: 'main#index'
+
+
+  # Authentication
+
+  resources :users, only: %i[ new  create]
+
 end
